@@ -1,4 +1,4 @@
-import MySQLdb as mdb
+import sqlite3
 import sys
 
 def createLoginTable(con):
@@ -10,7 +10,7 @@ def createLoginTable(con):
 def insertLoginTable(con,username,password):
 	with con:
 		cur = con.cursor()
-		cur.execute("INSERT INTO login VALUES({},{})".format(username,password))
+ 		cur.execute("INSERT INTO login VALUES({},{})".format(username,password))
 		return "Successful"
 def retrieveLoginTable(con,username,password):
 	with con:
