@@ -1,3 +1,4 @@
+Complete overflow of requirements
 Algorithm 
 Dictionary ----> algo ----> 1. Drop(<100) students/ funding   
                       ----> 2. esitmate cost
@@ -5,58 +6,70 @@ Dictionary ----> algo ----> 1. Drop(<100) students/ funding
                       ----> 4. Visualization 
 
 
-Parameter for questionnaires
+Parameter for questionnaires for researchers and volunteers for on spot surveys
+Genral
+1.School Name and ID(Name,Number)
+2.Locality of schools(Radio buttons Rural/Urban/Tribal)
+2.Existing Programs(Number)
+3.Strength(Number)
+4.No of girls(Number)
+5.No of boys(Number)
+6.preassigned Amount provided by other bodies(Number) 
+7.Cluster(Name)
+8.Block(Name)
+9.Region(Name)
+10.State(Name)
 
-1.School Name / ID
-2.Existing Programs
-3.Strength
-4.No of girls
-5.No of boys
-4.preassigned Amount 
-5.works in progress
 
-
-6.Education
-	6.1 e learning
-	6.2 teachers student ratio
-	6.3 students per classroom
-	6.4 understading of students
-	6.5 teachers quality
-	6.6 No of primary school childrem
-	6.7 No of secondary school
+2.Education
+	2.1 e learning(yes/no)
+	2.2 Number of teachers(number)
+	2.3 understanding of students(quality ratings 1-10)
+	2.4 teachers quality(quality ratings 1 to 10)
+	2.5 No of male teachers(Number)
+	2.6 No of female teachers(Number)
+	2.5 No of primary school childrem(number)
+	2.6 No of secondary school children(number)
+	2.7 Medium of instruction(Radio buttons Kannada,English,Tamil,Urdu,Telegu,Others)
  
-7.Infrastructure
-	7.1 no of class rooms
-	7.2 no of black boards
-	7.3 no benches and chairs
-	7.4 library 
-	7.5 labs
-	7.6 computers 
-	7.7 toilets 
-	7.8 Stability of buildings
+3.Infrastructure
+	3.1 no of class rooms(Number)
+	3.2 no of black boards(Number)
+	3.3 no benches and chairs(Number)
+	3.4 library(yes/no)
+	3.5 labs(yes/no)
+	3.7 Lab and library quality(Ratings 1 to 10)
+	3.8 computers(yes/no)
+	3.9 Number of computers(number)
+	3.10 toilets quality(ratings 1 to 10)
+	3.11 Toilets present for both girls and boys(yes/no)
+	3.12 Stability of buildings(ratings 1 to 10)
 
-8.Health
-	8.1 No of health programs
-	8.2 first aid kits
-	8.3 medicines distributed by DOPI
-	8.4 Training on hygine and medicine
-	8.5 School mental health - counselling and training 
+4.Health
+	4.1 No of health programs(Number)
+	4.2 first aid kits(number)
+	4.3 medicines distributed by DOPI(yes or no)
+	4.4 Training on hygine and medicine(yes or no)
+	4.5 School mental health - counselling and training(yes or no)
 
-9.Stockholder Involvement
-	9.1 Teachers training
-	9.2 parents meeting
+5.Stakeholder Involvement
+	5.1 Teachers training(Ratings 1 to 10)
+	5.2 parents meeting(Ratings 1 to 10)
+	5.3 Alumni association(Ratings 1 to 10)
+	5.4 SDMC,SMC/SPC involvement(Ratings 1 to 10)
 
-10.Other facilities
-	10.1 Sports facilities
-	10.2 Construction of new infrastructure
-	10.3 School bag and notebooks
+6.Other facilities
+	6.1 Sports facilities(Ratings 1 to 10)
+	6.2 Construction of new infrastructure(Ratings 1 to 10)
+	6.3 School bag and notebooks(Ratings 1 to 10)
+	6.4 Midday meals provided(Yes or No)
 
-11. Academics 
-	11.1 No of academics program running
-	11.2 Pass percentage 
+7. Academics 
+	7.1 No of academics program running(In numbers)
+	7.2 Pass percentage(0-100%)
 
-MONTHLY SURVEYS
-No of active projects
-Statuses(Generate based on active projects)
-No of months
+8.Monthly surveys(Extra points apart from above points)
+	8.1 No of active projects
+	8.2 Status(Generate based on active projects)
+	8.3 No of months completed after the project start
 [Delay will be calculated and predicition of ending date wound be provided.
