@@ -1,0 +1,73 @@
+{
+"School ID":"RVCE",
+"Locality of schools":"Rural",
+"Existing Programs":10,
+"Strength":150,
+"No of girls":75,
+"No of boys":75,
+"preassigned Amount provided by other bodies":50000, 
+"Cluster":"south",
+"Block":"north",
+"Region":"Bangalore",
+"State":"Karnataka",
+
+
+"Education":{
+	"e learning":"no",
+	"Number of teachers":15,
+	"understanding of students":7,
+	"teachers quality":4,
+	"No of male teachers":4,
+	"No of female teachers":10,
+	"No of primary school children":100,
+	"No of secondary school children":50,
+	"Medium of instruction":"Kannada"
+    },
+"Infrastructure":{
+	"no of class rooms":7,
+	"no of black boards":6,
+	"no benches and chairs":24,
+	"library":"no",
+	"labs":"yes",
+	"Lab and library quality":6,
+	"computers":"yes",
+	"Number of computers":20,
+    "toilets quality":6,
+    "Toilets present for both girls and boys":"yes",
+    "Stability of buildings":5
+    },
+
+"Health":{
+	"No of health programs":12,
+	"first aid kits":5,
+	"medicines distributed by DOPI":"no",
+	"Training on hygine and medicine":"yes",
+	"School mental health - counselling and training":"no"
+    },
+
+"Stakeholder Involvement":{
+	"Teachers training":"Yes",
+	"parents meeting":3,
+    "Alumni association":3,
+    "SDMC,SMC/SPC involvement":"Yes"
+    
+    },
+
+"Other facilities":{
+	"Sports facilities":8,
+	"Construction of new infrastructure":"yes",
+	"School bag and notebooks":"no",
+    "Midday meals provided":"Yes"
+    },
+
+"Academics":{ 
+	"No of academics program running":10,
+    "Pass percentage": 95
+    },
+
+"Monthly surveys(Extra points apart from above points)":{
+	"No of active projects":9,
+	"Status":"",
+    "No of months completed after the project start":10
+    }
+}
