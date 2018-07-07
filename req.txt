@@ -50,4 +50,8 @@ for Database
 	11.1 No of academics program running
 	11.2 Pass percentage 
 
-
+MONTHLY SURVEYS
+No of active projects
+Statuses(Generate based on active projects)
+No of months
+[Delay will be calculated and predicition of ending date wound be provided.
