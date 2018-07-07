@@ -12,26 +12,26 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class HealthActivity extends AppCompatActivity {
+public class Education extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_health);
+        setContentView(R.layout.activity_education);
+
     }
-    public void nextHealth(View view){
+    public void toMainActivity(View view){
         json();
-        Intent toInfrastructure = new Intent(this,Infrastructure.class);
-        startActivity(toInfrastructure);
+        Toast.makeText(this,"Form submitted successfully",Toast.LENGTH_SHORT).show();
+        Intent toMainActivity = new Intent(this,MainActivity.class);
+        startActivity(toMainActivity);
     }
+
     public void json(){
         JSONObject obj = new JSONObject();
         try {
-
             obj.put("comment",((EditText)findViewById(R.id.editText)).getText().toString());
-
-            obj.put("NO_OF_PROG",Integer.parseInt(((EditText)findViewById(R.id.healthProgramsEditText)).getText().toString()));
-            obj.put("FIRST_AID",Integer.parseInt(((EditText)findViewById(R.id.firstAidKitsEditText)).getText().toString()));
+            /*e learning*/
             int resRg;
             RadioGroup rg1 = (RadioGroup) findViewById(R.id.radio1);
             final String value1 =
@@ -41,33 +41,31 @@ public class HealthActivity extends AppCompatActivity {
                 resRg= 1;
             else
                 resRg = 0;
-            obj.put("medicine distributed by dopi",resRg);
+            obj.put("e learning",resRg);
 
 
             RadioGroup rg2 = (RadioGroup) findViewById(R.id.radio2);
             final String value2 =
                     ((RadioButton)findViewById(rg2.getCheckedRadioButtonId()))
                             .getText().toString();
-            if(value2.equals("Yes"))
+            if(value1.equals("Yes"))
                 resRg= 1;
             else
                 resRg = 0;
-            obj.put("school mental health",resRg);
+            obj.put("medium of instruction",resRg);
 
+            obj.put("CLUSTER",((EditText)findViewById(R.id.clusterEditText)).getText().toString());
+            obj.put("TEACHERS",Integer.parseInt(((EditText)findViewById(R.id.teachersEditText)).getText().toString()));
+            obj.put("UNDERSTANDING",Integer.parseInt(((EditText)findViewById(R.id.understandingEditText)).getText().toString()));
+            obj.put("TEACHERS_QUALITY",Integer.parseInt(((EditText)findViewById(R.id.teachersQualityEditText)).getText().toString()));
+            obj.put("NO_OF_MALE_TEACHERS",Integer.parseInt(((EditText)findViewById(R.id.boysEditText)).getText().toString()));
+            obj.put("NO_OF_FEMALE_TEACHERS",Integer.parseInt(((EditText)findViewById(R.id.FemaleEditText)).getText().toString()));
+            obj.put("NO_OF_PRIMARY_SCHOOL_CHILDREN",Integer.parseInt(((EditText)findViewById(R.id.primarySchoolEditText)).getText().toString()));
+            obj.put("NO_OF_SECONDARY_SCHOOL_CHILDREN",Integer.parseInt(((EditText)findViewById(R.id.secondarySchoolEditText)).getText().toString()));
 
-            RadioGroup rg3 = (RadioGroup) findViewById(R.id.radio3);
-            final String value3 =
-                    ((RadioButton)findViewById(rg3.getCheckedRadioButtonId()))
-                            .getText().toString();
-            if(value3.equals("Yes"))
-                resRg= 1;
-            else
-                resRg = 0;
-            obj.put("training on hygiene",resRg);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
         Toast.makeText(this,String.valueOf(obj),Toast.LENGTH_LONG).show();
 
         /*
