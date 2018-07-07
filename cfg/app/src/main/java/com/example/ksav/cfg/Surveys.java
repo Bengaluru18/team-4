@@ -25,6 +25,8 @@ public class Surveys extends AppCompatActivity {
     public void json(){
         JSONObject obj = new JSONObject();
         try {
+            obj.put("comment",((EditText)findViewById(R.id.editText)).getText().toString());
+
             obj.put("No.of Active Projecdts",((EditText)findViewById(R.id.activeProjectsEditText)).getText().toString());
             obj.put("status",((EditText)findViewById(R.id.statusEditText)).getText().toString());
             obj.put("No.of Months completed after the project",Integer.parseInt(((EditText)findViewById(R.id.monthsEditText)).getText().toString()));

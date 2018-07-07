@@ -97,6 +97,7 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
         <RadioGroup
+            android:id="@+id/radio1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -134,7 +135,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:id="@+id/radio2">
 
             <RadioButton
                 android:id="@+id/yes2Button"
@@ -189,6 +191,7 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
         <RadioGroup
+            android:id="@+id/radio3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -270,6 +273,7 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
         <RadioGroup
+            android:id="@+id/radio4"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"

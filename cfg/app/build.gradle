@@ -28,4 +28,5 @@ dependencies {
     implementation 'com.amazonaws:aws-android-sdk-core:2.6.+'
     implementation 'com.amazonaws:aws-android-sdk-s3:2.6.+'
     implementation 'com.amazonaws:aws-android-sdk-ddb:2.6.+'
+    implementation 'com.android.volley:volley:1.1.0'
 }
