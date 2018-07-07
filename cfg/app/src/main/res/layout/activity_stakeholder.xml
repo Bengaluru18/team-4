@@ -106,6 +106,17 @@
             android:inputType="textPersonName"
             android:text="Rate 1-10" />
     </LinearLayout>
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Comments" />
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textMultiLine" />
     <Button
         android:id="@+id/button4"
         android:layout_width="match_parent"

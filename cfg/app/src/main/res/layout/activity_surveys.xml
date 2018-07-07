@@ -81,6 +81,17 @@
             android:inputType="textPersonName"
             android:text="Enter no. of months" />
     </LinearLayout>
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Comments" />
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textMultiLine" />
     <Button
         android:id="@+id/button3"
         android:layout_width="match_parent"
