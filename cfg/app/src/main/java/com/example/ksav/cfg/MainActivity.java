@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import org.json.JSONObject;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -17,4 +19,12 @@ public class MainActivity extends AppCompatActivity {
         startActivity(toHealthIntent);
     }
 
+
+}
+
+class jsonSend{
+    public static void main(String[] args){
+        JSONObject obj = new JSONObject();
+        
+    }
 }

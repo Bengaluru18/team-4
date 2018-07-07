@@ -5,15 +5,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-public class Infrastructure extends AppCompatActivity {
+public class Stakeholder extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_infrastructure);
+        setContentView(R.layout.activity_stakeholder);
     }
-    public void nextAcademics(View view){
-        Intent toAcademics = new Intent(this,Academics.class);
-        startActivity(toAcademics);
+    public void toEducation(View view){
+        Intent toEducation = new Intent(this,Education.class);
+        startActivity(toEducation);
     }
 }
