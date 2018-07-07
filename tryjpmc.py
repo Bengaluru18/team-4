@@ -1,6 +1,7 @@
 import random 
 import numpy as np 
 from sklearn import preprocessing
+import matplotlib.pyplot as plt
 #data generation for 5000 schools
 
 #quantify all schools as a vecotr as following  = [1.student/teacher, 
@@ -16,7 +17,6 @@ from sklearn import preprocessing
 #                                                  11.pass_percentage,
 #                                                  12.SDMC]
 #student teacher ratio
-min_max_scaler = preprocessing.MaxAbsScaler()
 data0 = []
 for _ in range(5000):
     #this is 1
@@ -61,11 +61,27 @@ for _ in range(5000):
     sdmc[i] = 1
 
     data0.append([st, no, tq, beforea, a, b, c, d, mdm, ni, pp, sdmc])
-    data0[0]=min_max_scaler.fit_transform(data0[0])
-print data0[0][0]
+max1=0
+for i in range(0,5000) :
+    if(max1<data0[i][0]) :
+        max1=data0[i][0]
+sum1=0;
+for j in range(0,5000) :
+    sum1=sum1+data0[j][0]
+avg=sum1/5000;
+z=[data0[0][0],max1,avg]
+y=[1,2,3]
+w=0.35
+#print max1
+#p1 = plt.bar(y, z, w)
+#plt.ylabel('Score values')
+#plt.title('')
+#plt.xticks(y, ('school current', 'max value', 'average value'))
+#plt.savefig("D:/plot.png")
+#plt.show()
 
 datab = []
-for _ in range(5000):
+for _ in range(20000):
     #this is 1
     st = round(random.uniform(60, 90), 3)
     #2
@@ -94,7 +110,7 @@ for _ in range(5000):
     datab.append([st, no, tq, beforea, a, b, c, d, mdm, ni, pp, sdmc, 0])
 
 datag = []
-for _ in range(5000):
+for _ in range(20000):
     #this is 1
     st = round(random.uniform(20, 40), 3)
     #2
@@ -124,7 +140,7 @@ for _ in range(5000):
 
 
 datam = []
-for _ in range(5000):
+for _ in range(20000):
     #this is 1
     st = round(random.uniform(40, 60), 3)
     #2
