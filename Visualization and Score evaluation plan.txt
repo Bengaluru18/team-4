@@ -1,0 +1,12 @@
+ALOGRITHM FOR DATA SCORE CALCULATION(ACTION PLAN FOR NEXT TASK)
+
+1.Obtain data the survey features and express the data with Yes/No features as one-hot codes
+2.Apply Z score calculation to normalize the data
+3.Sum the data after applying the required weights
+4.Obtain the score by summing data with required weights
+5.Use Support Vector Machines to classify data
+
+VISUALIZATION
+1.Visualization is done with data for comparing data performance within blocks,clusters,districts and states
+2.Depict data as barcharts to compare the performance of school wrt to other schools in the blocks and clusters
+3.Comparison is done with respect to mean and average score
