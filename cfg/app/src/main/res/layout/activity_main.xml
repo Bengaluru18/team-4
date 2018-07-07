@@ -8,6 +8,13 @@
     tools:context=".MainActivity">
 
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="30dp"
+        android:text="Need Assessment" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -74,28 +81,28 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <RadioGroup
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
             <RadioButton
                 android:id="@+id/ruralButton"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Rural" />
 
             <RadioButton
                 android:id="@+id/tribalButton"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Tribal" />
 
             <RadioButton
                 android:id="@+id/urbanButton"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Urban" />
