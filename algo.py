@@ -9,3 +9,6 @@ def shouldtakeschool(data):
     if data["Strength"] >= 100:
         return "Yes"
     return "No"
+
+if __name__ == "__main__":
+    print(shouldtakeschool(data))
