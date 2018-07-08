@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="static/images/icons/favicon.ico"/>
+	<link rel="icon" type="image/png" href="/static/images/icons/favicon.ico"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="static/vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
@@ -26,32 +26,41 @@
 	<link rel="stylesheet" type="text/css" href="static/css/util.css">
 	<link rel="stylesheet" type="text/css" href="static/css/main.css">
 <!--===============================================================================================-->
+<script>
+function myfunction()
+{
+document.getElementById("college1").style.display="none";
+}
+	var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+       // Typical action to be performed when the document is ready:
+       //document.getElementById("demo").innerHTML = xhttp.responseText;
+       console.log("---------------------------------------------------------------------------------------");
+       var obj=JSON.parse(xhttp.responseText)['result'];
+       console.log(obj);
+       document.getElementById("college1").innerHTML=obj[0].School_Name;
+       document.getElementById("college2").innerHTML=obj[1].School_Name;
+       document.getElementById("college3").innerHTML=obj[2].School_Name;
+   }
+};
+xhttp.open("GET", "http://13.229.96.198:5000/retrieveDistrict?District=rem", true);
+xhttp.send();
+   </script>
 </head>
 <body>
 	
 	
-	<div class="container-login100" style="background-image: url('static/images/children.jpg');">
+	<div class="container-login100" style="background-image: url('static/images/bg-01.jpg');">
 		<div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
-			<form class="login100-form validate-form" action="{{url_for('dash')}}" method="get">
+			<form class="login100-form validate-form" action="{{url_for('report')}}" method="get">
 				<span class="login100-form-title p-b-37">
-					Log in
+					DASHBOARD
 				</span>
-
-				<div class="wrap-input100 validate-input m-b-20" data-validate="Enter username">
-					<input class="input100" type="text" name="username" placeholder="username">
-					<span class="focus-input100"></span>
-				</div>
-
-				<div class="wrap-input100 validate-input m-b-25" data-validate = "Enter password">
-					<input class="input100" type="password" name="pass" placeholder="password">
-					<span class="focus-input100"></span>
-				</div>
-
-				<div class="container-login100-form-btn">
-					<button class="login100-form-btn">
-						Log In
-					</button>
-				</div>
+					<a href="col.html"><b><div id="college1"></div></b></a><button type="button" onclick="myfunction()">delete</button> <button type="submit">view</button>
+					<a href="col.html"><div id="college2"></div></a><br>
+					<a href="col.html"><div id="college3"></div></a><br>
+				<span class="focus-input100"></span>
 
 			</form>
 
@@ -69,7 +78,7 @@
 	<script src="static/vendor/animsition/js/animsition.min.js"></script>
 <!--===============================================================================================-->
 	<script src="static/vendor/bootstrap/js/popper.js"></script>
-	<script src="static/endor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="static/vendor/bootstrap/js/bootstrap.min.js"></script>
 <!--===============================================================================================-->
 	<script src="static/vendor/select2/select2.min.js"></script>
 <!--===============================================================================================-->

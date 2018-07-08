@@ -26,33 +26,115 @@
 	<link rel="stylesheet" type="text/css" href="static/css/util.css">
 	<link rel="stylesheet" type="text/css" href="static/css/main.css">
 <!--===============================================================================================-->
+	<script>
+		var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+       // Typical action to be performed when the document is ready:
+       //document.getElementById("demo").innerHTML = xhttp.responseText;
+       console.log("----------------------------------------");
+       var obj=JSON.parse(xhttp.responseText)['result'];
+       console.log(obj);
+       document.getElementById("locality").innerHTML = obj[0].Locality;
+       document.getElementById("district").innerHTML = obj[0].District;
+       document.getElementById("schoolid").innerHTML = obj[0].SchoolID;
+       document.getElementById("school_name").innerHTML = obj[0].School_Name;
+       document.getElementById("block").innerHTML = obj[0].block;
+       document.getElementById("region").innerHTML = obj[0].region;
+       document.getElementById("state").innerHTML = obj[0].state;
+       document.getElementById("amount_old").innerHTML = obj[0].Amount_old;
+       document.getElementById("no_of_boys").innerHTML = obj[0].No_of_Boys;
+       document.getElementById("no_of_girls").innerHTML = obj[0].No_of_Girls;
+       document.getElementById("no_of_ngos").innerHTML = obj[0].No_of_NGOSs;
+       document.getElementById("no_of_students").innerHTML = obj[0].No_of_Students;
+	}
+};
+xhttp.open("GET", "http://13.229.96.198:5000/retrieveSchool?SchoolId=AKJGS", true);
+xhttp.send();
+	</script>
 </head>
 <body>
 	
-	
+	<p id="demo">
 	<div class="container-login100" style="background-image: url('static/images/children.jpg');">
 		<div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
-			<form class="login100-form validate-form" action="{{url_for('dash')}}" method="get">
+			<form class="login100-form validate-form" action="{{url_for('report')}}" method="get">
 				<span class="login100-form-title p-b-37">
-					Log in
+					REPORT
 				</span>
+				<br>
 
-				<div class="wrap-input100 validate-input m-b-20" data-validate="Enter username">
-					<input class="input100" type="text" name="username" placeholder="username">
-					<span class="focus-input100"></span>
+				<div>
+				<b>School Name:</b>
+				<div id="school_name"></div>
 				</div>
+				<br>
 
-				<div class="wrap-input100 validate-input m-b-25" data-validate = "Enter password">
-					<input class="input100" type="password" name="pass" placeholder="password">
-					<span class="focus-input100"></span>
+				<div>
+					<b>School ID:</b>
+					<div id="schoolid"></div>
 				</div>
+				<br>
 
-				<div class="container-login100-form-btn">
-					<button class="login100-form-btn">
-						Log In
-					</button>
+				<div>
+					<b>Locality:</b>
+					<div id="locality"></div>
 				</div>
+				<br>
 
+				<div>
+					<b>Existing programs:</b>
+					<div id="no_of_ngos"></div>
+				</div>
+				<br>
+
+				<div>
+					<b>Strength:</b>
+					<div id="no_of_students"></div>
+				</div>
+				<br>
+
+				<div>
+					<b>No of Girls:</b>
+					<div id="no_of_girls"></div>
+				</div>
+				<br>
+
+				<div>
+					<b>No of Boys:</b>
+					<div id="no_of_boys"></div>
+				</div>
+				<br>
+
+				<div>
+					<b>Amount:</b>
+					<div id="amount_old"></div>
+				</div>
+				<br>
+
+				<div>
+					<b>Cluster</b>
+					<div id="district"></div>
+				</div>
+				<br>
+
+				<div>
+					<b>Block</b>
+					<div id="block"></div>
+				</div>
+				<br>
+
+				<div>
+					<b>Region</b>
+					<div id="region"></div>
+				</div>
+				<br>
+
+				<div>
+					<b>State:</b>
+					<div id="state"></div>
+				</div>
+				<br>
 			</form>
 
 			
@@ -69,7 +151,7 @@
 	<script src="static/vendor/animsition/js/animsition.min.js"></script>
 <!--===============================================================================================-->
 	<script src="static/vendor/bootstrap/js/popper.js"></script>
-	<script src="static/endor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="static/vendor/bootstrap/js/bootstrap.min.js"></script>
 <!--===============================================================================================-->
 	<script src="static/vendor/select2/select2.min.js"></script>
 <!--===============================================================================================-->
