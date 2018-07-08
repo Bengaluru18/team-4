@@ -101,7 +101,7 @@ def academicsin():
         dict2={}
         try:
                 con= mdb.connect('localhost','dbuser','Dbuser123!@','dbase_cwf');
-                dict2 = cf.insertAcademicsTable(con,[request.form['S_ID'],request.form['No_Aprogs'],request.form['Passper'],request.form['Comments']])
+                dict2 = cf.InsertAcademicsTable(con,[request.form['S_ID'],request.form['No_Aprogs'],request.form['Passper'],request.form['Comments']])
                 return jsonify(dict2)
         except mdb.Error,e:
                 dict2 = {'error':e,'error_no':'70'}
@@ -111,11 +111,77 @@ def surveyin():
         dict2={}
         try:
                 con= mdb.connect('localhost','dbuser','Dbuser123!@','dbase_cwf');
-                dict2 = cf.insertSurveyTable(con,[request.form['S_ID'],request.form['A_projs'],request.form['Status'],request.form['N_months']])
+                dict2 = cf.InsertSurveyTable(con,[request.form['S_ID'],request.form['A_projs'],request.form['Status'],request.form['N_months']])
                 return jsonify(dict2)
         except mdb.Error,e:
                 dict2 = {'error':e,'error_no':'70'}
                 return jsonify(dict2)
+
+@app.route('/insertEducation',methods=['POST'])
+def eduin():
+        dict2={}
+        try:
+                con= mdb.connect('localhost','dbuser','Dbuser123!@','dbase_cwf');
+                x = []
+		x.append(request.form['ID'])
+		x.append(request.form['T_No'])
+		x.append(request.form['P_stud'])
+		x.append(request.form['S_stud'])
+		x.append(request.form['MT_No'])
+		x.append(request.form['FT_No'])
+		x.append(request.form['Med_ist'])
+		x.append(request.form['Teach_qual'])
+		x.append(request.form['Stud_Un'])
+		x.append(request.form['Comment'])
+		dict2 = cf.insert_education(con,x)
+                return jsonify(dict2)
+        except mdb.Error,e:
+                dict2 = {'error':e,'error_no':'70'}
+                return jsonify(dict2)
+@app.route('/insertstake',methods=['POST'])
+def stakein():
+        dict2={}
+        try:
+                con= mdb.connect('localhost','dbuser','Dbuser123!@','dbase_cwf');
+                x = []
+                x.append(request.form['ID'])
+                x.append(request.form['T_Train'])
+                x.append(request.form['P_Meet'])
+                x.append(request.form['Alum'])
+                x.append(request.form['SDCInv'])
+                x.append(request.form['Comments'])
+                dict2 = cf.insert_stakeholder(con,x)
+                return jsonify(dict2)
+        except mdb.Error,e:
+                dict2 = {'error':e,'error_no':'70'}
+                return jsonify(dict2)
+
+
+@app.route('/insertinfra',methods=['POST'])
+def infrain():
+        dict2={}
+        try:
+                con= mdb.connect('localhost','dbuser','Dbuser123!@','dbase_cwf');
+                x = []
+                x.append(request.form['ID'])
+                x.append(request.form['C_No'])
+                x.append(request.form['B_No'])
+                x.append(request.form['Ben_No'])
+                x.append(request.form['Lib'])
+                x.append(request.form['Lab'])
+                x.append(request.form['Lab_Lib'])
+                x.append(request.form['Comp'])
+                x.append(request.form['Com_No'])
+		x.append(request.form['Toil_Co'])
+		x.append(request.form['Toil_Q'])
+		x.append(request.form['Build'])
+                x.append(request.form['Comment'])
+                dict2 = cf.insert_infrastructure(con,x)
+                return jsonify(dict2)
+        except mdb.Error,e:
+                dict2 = {'error':e,'error_no':'70'}
+                return jsonify(dict2)
+
 
 @app.route('/retrievefacilities',methods=['GET'])
 def facilitiesret():
@@ -147,6 +213,41 @@ def Surveyret():
         except mdb.Error,e:
                 dict2 = {'error':e, 'error_no':'120'}    
                 return jsonify(dict2)   
+
+@app.route('/retrieveEdu',methods=['GET'])
+def Eduret():
+        dict2={}
+        try:
+                con= mdb.connect('localhost','dbuser','Dbuser123!@','dbase_cwf');
+                dict2=cf.retrieve_education(con,request.args['SchoolID'])
+                return jsonify(dict2)
+        except mdb.Error,e:
+                dict2 = {'error':e, 'error_no':'120'}
+                return jsonify(dict2)
+
+@app.route('/retrieveInfra',methods=['GET'])
+def infraret():
+        dict2={}
+        try:
+                con= mdb.connect('localhost','dbuser','Dbuser123!@','dbase_cwf');
+                dict2=cf.retrieve_infrastructure(con,request.args['SchoolID'])
+                return jsonify(dict2)
+        except mdb.Error,e:
+                dict2 = {'error':e, 'error_no':'120'}
+                return jsonify(dict2)
+
+@app.route('/retrievestake',methods=['GET'])
+def stakeret():
+        dict2={}
+        try:
+                con= mdb.connect('localhost','dbuser','Dbuser123!@','dbase_cwf');
+                dict2=cf.retrieve_stakeholder(con,request.args['SchoolID'])
+                return jsonify(dict2)
+        except mdb.Error,e:
+                dict2 = {'error':e, 'error_no':'120'}
+                return jsonify(dict2)
+
+
 if __name__ == 'main':
         app.run( host='0.0.0.0')
 	
