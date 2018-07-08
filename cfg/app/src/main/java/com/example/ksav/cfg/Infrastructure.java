@@ -38,7 +38,7 @@ public class Infrastructure extends AppCompatActivity {
     }
     public void json(){
         final Map<String,String> obj = new HashMap();
-        int id = 11;
+        int id = 21;
         obj.put("ID",String.valueOf(id++));
 
             obj.put("Comment",((EditText)findViewById(R.id.editText)).getText().toString());

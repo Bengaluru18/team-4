@@ -60,7 +60,7 @@ public class Education extends AppCompatActivity {
 
 
 //            obj.put("CLUSTER",((EditText)findViewById(R.id.clusterEditText)).getText().toString());
-        int id=11;
+        int id=21;
         obj.put("ID",String.valueOf(id++));
 
         obj.put("T_No",((EditText)findViewById(R.id.teachersEditText)).getText().toString());
