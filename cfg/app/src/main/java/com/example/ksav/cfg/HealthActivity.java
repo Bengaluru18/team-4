@@ -3,14 +3,26 @@ package com.example.ksav.cfg;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class HealthActivity extends AppCompatActivity {
 
@@ -25,13 +37,14 @@ public class HealthActivity extends AppCompatActivity {
         startActivity(toInfrastructure);
     }
     public void json(){
-        JSONObject obj = new JSONObject();
-        try {
+        final Map<String,String> obj = new HashMap();
+        int id=12;
+        obj.put("ID",String.valueOf(id++));
 
-            obj.put("comment",((EditText)findViewById(R.id.editText)).getText().toString());
+            obj.put("Comment",((EditText)findViewById(R.id.editText)).getText().toString());
 
-            obj.put("NO_OF_PROG",Integer.parseInt(((EditText)findViewById(R.id.healthProgramsEditText)).getText().toString()));
-            obj.put("FIRST_AID",Integer.parseInt(((EditText)findViewById(R.id.firstAidKitsEditText)).getText().toString()));
+            obj.put("NOP",((EditText)findViewById(R.id.healthProgramsEditText)).getText().toString());
+            obj.put("FAI",((EditText)findViewById(R.id.firstAidKitsEditText)).getText().toString());
             int resRg;
             RadioGroup rg1 = (RadioGroup) findViewById(R.id.radio1);
             final String value1 =
@@ -41,7 +54,7 @@ public class HealthActivity extends AppCompatActivity {
                 resRg= 1;
             else
                 resRg = 0;
-            obj.put("medicine distributed by dopi",resRg);
+            obj.put("MEO",String.valueOf(resRg));
 
 
             RadioGroup rg2 = (RadioGroup) findViewById(R.id.radio2);
@@ -52,7 +65,7 @@ public class HealthActivity extends AppCompatActivity {
                 resRg= 1;
             else
                 resRg = 0;
-            obj.put("school mental health",resRg);
+            obj.put("COUNS",String.valueOf(resRg));
 
 
             RadioGroup rg3 = (RadioGroup) findViewById(R.id.radio3);
@@ -63,27 +76,52 @@ public class HealthActivity extends AppCompatActivity {
                 resRg= 1;
             else
                 resRg = 0;
-            obj.put("training on hygiene",resRg);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+            obj.put("TRAIN",String.valueOf(resRg));
+
 
         Toast.makeText(this,String.valueOf(obj),Toast.LENGTH_LONG).show();
 
-        /*
-        try {
-            URL url = new URL("/media/webservice/httppost.php");
-            URLConnection conn = url.openConnection();
-            conn.setDoOutput(true);
-            OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
-            wr.write(String.valueOf(obj));
-            wr.flush();
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    */
 
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        String URL = "http://13.229.96.198:5000/inserthealth";
+//        String URL = "https://reqres.in/api/users";
+
+//            final String requestBody = obj.toString();
+        Toast.makeText(this,"1",Toast.LENGTH_SHORT).show();
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
+
+            @Override
+            public void onResponse(String response) {
+
+                Log.i("VOLLEY", response);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e("VOLLEY", error.toString());
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String,String> m = new HashMap<>();
+                m.put("name","some name");
+                m.put("job","some job");
+                return obj;
+            }
+        };
+        Toast.makeText(this,"3",Toast.LENGTH_SHORT).show();
+        requestQueue.add(stringRequest);
     }
+
+
+
+
+
+
+
+
+
+
+
+
 }

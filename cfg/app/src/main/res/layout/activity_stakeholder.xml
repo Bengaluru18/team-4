@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:layout_margin="10dp"
     tools:context=".Stakeholder">
 
     <TextView
@@ -35,7 +36,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Rate 1-10" />
+            android:hint="Rate 1-10" />
     </LinearLayout>
 
     <LinearLayout
@@ -58,7 +59,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Rate 1-10" />
+            android:hint="Rate 1-10" />
     </LinearLayout>
 
     <LinearLayout
@@ -81,7 +82,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Rate 1-10" />
+            android:hint="Rate 1-10" />
     </LinearLayout>
 
     <LinearLayout
@@ -104,7 +105,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Rate 1-10" />
+            android:hint="Rate 1-10" />
     </LinearLayout>
     <TextView
         android:id="@+id/textView2"

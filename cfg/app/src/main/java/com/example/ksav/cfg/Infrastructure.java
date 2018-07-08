@@ -3,14 +3,26 @@ package com.example.ksav.cfg;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Infrastructure extends AppCompatActivity {
 
@@ -20,18 +32,20 @@ public class Infrastructure extends AppCompatActivity {
         setContentView(R.layout.activity_infrastructure);
     }
     public void nextAcademics(View view){
+        json();
         Intent toAcademics = new Intent(this,Academics.class);
         startActivity(toAcademics);
     }
     public void json(){
-        JSONObject obj = new JSONObject();
-        try {
+        final Map<String,String> obj = new HashMap();
+        int id = 11;
+        obj.put("ID",String.valueOf(id++));
 
-            obj.put("comment",((EditText)findViewById(R.id.editText)).getText().toString());
+            obj.put("Comment",((EditText)findViewById(R.id.editText)).getText().toString());
 
-            obj.put("No of class rooms",Integer.parseInt(((EditText)findViewById(R.id.classRoomsEditText)).getText().toString()));
-            obj.put("No.of black boads",Integer.parseInt(((EditText)findViewById(R.id.blackBoardsEditText)).getText().toString()));
-            obj.put("NO of benches and chairs",Integer.parseInt(((EditText)findViewById(R.id.benchesChairsEditText)).getText().toString()));
+            obj.put("C_No",((EditText)findViewById(R.id.classRoomsEditText)).getText().toString());
+            obj.put("B_No",((EditText)findViewById(R.id.blackBoardsEditText)).getText().toString());
+            obj.put("Ben_No",((EditText)findViewById(R.id.benchesChairsEditText)).getText().toString());
             int resRg;
             RadioGroup rg1 = (RadioGroup) findViewById(R.id.radio1);
             final String value1 =
@@ -41,7 +55,7 @@ public class Infrastructure extends AppCompatActivity {
                 resRg= 1;
             else
                 resRg = 0;
-            obj.put("library",resRg);
+            obj.put("Lib",String.valueOf(resRg));
 
 
             RadioGroup rg2 = (RadioGroup) findViewById(R.id.radio2);
@@ -52,9 +66,9 @@ public class Infrastructure extends AppCompatActivity {
                 resRg= 1;
             else
                 resRg = 0;
-            obj.put("labs",resRg);
+            obj.put("Lab",String.valueOf(resRg));
 
-            obj.put("Labs and lib quality",Integer.parseInt(((EditText)findViewById(R.id.labsQualityEditText)).getText().toString()));
+            obj.put("Lab_Lib",((EditText)findViewById(R.id.labsQualityEditText)).getText().toString());
 
             RadioGroup rg3 = (RadioGroup) findViewById(R.id.radio3);
             final String value3 =
@@ -64,12 +78,12 @@ public class Infrastructure extends AppCompatActivity {
                 resRg= 1;
             else
                 resRg = 0;
-            obj.put("computers",resRg);
+            obj.put("Comp",String.valueOf(resRg));
 
 
-            obj.put("No of computers",Integer.parseInt(((EditText)findViewById(R.id.noOfComputersEditText)).getText().toString()));
+            obj.put("Com_No",((EditText)findViewById(R.id.noOfComputersEditText)).getText().toString());
 
-            obj.put("toiles quality",Integer.parseInt(((EditText)findViewById(R.id.toiletsQualityEditText)).getText().toString()));
+            obj.put("Toil_Q",((EditText)findViewById(R.id.toiletsQualityEditText)).getText().toString());
 
 
             RadioGroup rg4 = (RadioGroup) findViewById(R.id.radio4);
@@ -80,31 +94,57 @@ public class Infrastructure extends AppCompatActivity {
                 resRg= 1;
             else
                 resRg = 0;
-            obj.put("computers",resRg);
+            obj.put("Toil_Co",String.valueOf(resRg));
 
 
-            obj.put("stability of building",Integer.parseInt(((EditText)findViewById(R.id.stabilityOfBuildingEditText)).getText().toString()));
+            obj.put("Build",((EditText)findViewById(R.id.stabilityOfBuildingEditText)).getText().toString());
 
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
 
         Toast.makeText(this,String.valueOf(obj),Toast.LENGTH_LONG).show();
 
-        /*
-        try {
-            URL url = new URL("/media/webservice/httppost.php");
-            URLConnection conn = url.openConnection();
-            conn.setDoOutput(true);
-            OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
-            wr.write(String.valueOf(obj));
-            wr.flush();
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    */
 
+
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        String URL = "http://13.229.96.198:5000/insertinfra";
+//        String URL = "https://reqres.in/api/users";
+
+//            final String requestBody = obj.toString();
+        Toast.makeText(this,"1",Toast.LENGTH_SHORT).show();
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
+
+            @Override
+            public void onResponse(String response) {
+
+                Log.i("VOLLEY", response);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e("VOLLEY", error.toString());
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String,String> m = new HashMap<>();
+                m.put("name","some name");
+                m.put("job","some job");
+                return obj;
+            }
+        };
+        Toast.makeText(this,"3",Toast.LENGTH_SHORT).show();
+        requestQueue.add(stringRequest);
     }
+
+
+
+
+
+
+
+
+
+
+
+
 }

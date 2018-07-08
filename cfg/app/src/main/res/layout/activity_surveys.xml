@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:layout_margin="10dp"
     tools:context=".Surveys">
     <TextView
         android:id="@+id/textView"
@@ -33,7 +34,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Enter no. of active projects" />
+            android:hint="Enter no. of active projects" />
     </LinearLayout>
 
     <LinearLayout
@@ -56,7 +57,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Enter status" />
+            android:hint="Enter status" />
     </LinearLayout>
 
     <LinearLayout
@@ -79,7 +80,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Enter no. of months" />
+            android:hint="Enter no. of months" />
     </LinearLayout>
     <TextView
         android:id="@+id/textView2"
