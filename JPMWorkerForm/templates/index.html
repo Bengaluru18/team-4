@@ -26,112 +26,124 @@
 	<link rel="stylesheet" type="text/css" href="static/css/util.css">
 	<link rel="stylesheet" type="text/css" href="static/css/main.css">
 <!--===============================================================================================-->
+	<script>
+		var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+       // Typical action to be performed when the document is ready:
+       //document.getElementById("demo").innerHTML = xhttp.responseText;
+       console.log("----------------------------------------");
+       var obj=JSON.parse(xhttp.responseText)['result'];
+       console.log(obj);
+       document.getElementById("locality").innerHTML = obj[0].Locality;
+       document.getElementById("district").innerHTML = obj[0].District;
+       document.getElementById("schoolid").innerHTML = obj[0].SchoolID;
+       document.getElementById("school_name").innerHTML = obj[0].School_Name;
+       document.getElementById("block").innerHTML = obj[0].block;
+       document.getElementById("region").innerHTML = obj[0].region;
+       document.getElementById("state").innerHTML = obj[0].state;
+       document.getElementById("amount_old").innerHTML = obj[0].Amount_old;
+       document.getElementById("no_of_boys").innerHTML = obj[0].No_of_Boys;
+       document.getElementById("no_of_girls").innerHTML = obj[0].No_of_Girls;
+       document.getElementById("no_of_ngos").innerHTML = obj[0].No_of_NGOSs;
+       document.getElementById("no_of_students").innerHTML = obj[0].No_of_Students;
+	}
+};
+xhttp.open("GET", "http://13.229.96.198:5000/retrieveSchool?SchoolId=AKJGS", true);
+xhttp.send();
+	</script>
 </head>
 <body>
 	
-	
-	<div class="container-login100" style="background-image: url('images/bg-01.jpg');">
+	<p id="demo">
+	<div class="container-login100" style="background-image: url('static/images/children.jpg');">
 		<div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
 			<form class="login100-form validate-form" action="{{url_for('form')}}" method="get">
 				<span class="login100-form-title p-b-37">
-					School details
+					REPORT
 				</span>
-
-				<div class="wrap-input100 validate-input m-b-20" data-validate="School Name">
-					<input class="input100" type="text" name="schoolname" placeholder="School Name">
-					<span class="focus-input100"></span>
-				</div>
-
-				<div class="wrap-input100 validate-input m-b-25" data-validate = "School ID">
-					<input class="input100" type="text" name="schoolid" placeholder="School ID">
-					<span class="focus-input100"></span>
-				</div>
-
+				<br>
 
 				<div>
-					<b>Locality:</b>
-					<br>
-					<input type="radio" name="locality" value="rural"><b>Rural</b><br>
-					<input type="radio" name="locality" value="urban"><b>Urban</b><br>
-					<input type="radio" name="locality" value="tribal"><b>Tribal</b><br>
-					<span class="focus-input100"></span>
+				<b>School Name:</b>
+				<div id="school_name"></div>
 				</div>
 				<br>
 
-				<div class="wrap-input100 validate-input m-b-25" data-validate = "Existing Programs">
-					<input class="input100" type="text" name="programs" placeholder="Existing Programs">
-					<span class="focus-input100"></span>
-				</div>
-
-				<div class="wrap-input100 validate-input m-b-25" data-validate = "Strength">
-					<input class="input100" type="text" name="strength" placeholder="Strength">
-					<span class="focus-input100"></span>
-				</div>
-
-				<div class="wrap-input100 validate-input m-b-25" data-validate = "No of girls">
-					<input class="input100" type="text" name="nogirls" placeholder="No of girls">
-					<span class="focus-input100"></span>
-				</div>
-
-				<div class="wrap-input100 validate-input m-b-25" data-validate = "No of boys">
-					<input class="input100" type="text" name="noboys" placeholder="No of boys">
-					<span class="focus-input100"></span>
-				</div>
-
-				<div class="wrap-input100 validate-input m-b-25" data-validate = "Amount">
-					<input class="input100" type="text" name="amount" placeholder="Amount assigned">
-					<span class="focus-input100"></span>
-				</div>
-
-				<div class="wrap-input100 validate-input m-b-25" data-validate = "Cluster">
-					<input class="input100" type="text" name="cluster" placeholder="Cluster">
-					<span class="focus-input100"></span>
-				</div>
-
-				<div class="wrap-input100 validate-input m-b-25" data-validate = "Block">
-					<input class="input100" type="text" name="block" placeholder="Block">
-					<span class="focus-input100"></span>
-				</div>
-
-				<div class="wrap-input100 validate-input m-b-25" data-validate = "Region">
-					<input class="input100" type="text" name="region" placeholder="Region">
-					<span class="focus-input100"></span>
-				</div>
-
-				<div class="wrap-input100 validate-input m-b-25" data-validate = "State">
-					<input class="input100" type="text" name="state" placeholder="State">
-					<span class="focus-input100"></span>
-				</div>
-
 				<div>
-					<b>Locality:</b>
-					<br>
-					<input type="radio" name="locality" value="rural"><b>Rural</b><br>
-					<input type="radio" name="locality" value="urban"><b>Urban</b><br>
-					<input type="radio" name="locality" value="tribal"><b>Tribal</b><br>
-					<span class="focus-input100"></span>
+					<b>School ID:</b>
+					<div id="schoolid"></div>
 				</div>
 				<br>
 
 				<div>
 					<b>Locality:</b>
-					<br>
-					<input type="radio" name="locality" value="rural"><b>Rural</b><br>
-					<input type="radio" name="locality" value="urban"><b>Urban</b><br>
-					<input type="radio" name="locality" value="tribal"><b>Tribal</b><br>
-					<span class="focus-input100"></span>
+					<div id="locality"></div>
 				</div>
 				<br>
 
-
-
-
-
-				<div class="container-login100-form-btn">
-					<button class="login100-form-btn">
-						Submit
-					</button>
+				<div>
+					<b>Existing programs:</b>
+					<div id="no_of_ngos"></div>
 				</div>
+				<br>
+
+				<div>
+					<b>Strength:</b>
+					<div id="no_of_students"></div>
+				</div>
+				<br>
+
+				<div>
+					<b>No of Girls:</b>
+					<div id="no_of_girls"></div>
+				</div>
+				<br>
+
+				<div>
+					<b>No of Boys:</b>
+					<div id="no_of_boys"></div>
+				</div>
+				<br>
+
+				<div>
+					<b>Amount:</b>
+					<div id="amount_old"></div>
+				</div>
+				<br>
+
+				<div>
+					<b>Cluster</b>
+					<div id="district"></div>
+				</div>
+				<br>
+
+				<div>
+					<b>Block</b>
+					<div id="block"></div>
+				</div>
+				<br>
+
+				<div>
+					<b>Region</b>
+					<div id="region"></div>
+				</div>
+				<br>
+
+				<div>
+					<b>State:</b>
+					<div id="state"></div>
+				</div>
+				<br>
+				
+
+				//<div class="container-login100-form-btn">
+				//	<button class="login100-form-btn">
+				//		Submit
+				//	</button>
+				//</div>
+
+
 				</form>
 
 			
