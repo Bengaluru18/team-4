@@ -9,7 +9,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_margin="10dp">
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
@@ -72,7 +73,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Enter no. of teachers" />
+            android:hint="Enter no. of teachers" />
     </LinearLayout>
 
     <LinearLayout
@@ -95,7 +96,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Rate 1-10" />
+            android:hint="Rate 1-10" />
     </LinearLayout>
 
     <LinearLayout
@@ -118,7 +119,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Rate 1-10" />
+            android:hint="Rate 1-10" />
     </LinearLayout>
 
 
@@ -142,7 +143,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Enter no. of Male teachers" />
+            android:hint="Enter no. of Male teachers" />
     </LinearLayout>
 
     <LinearLayout
@@ -165,7 +166,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Enter no. of Female teachers" />
+            android:hint="Enter no. of Female teachers" />
     </LinearLayout>
 
     <LinearLayout
@@ -188,7 +189,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Enter no. of primary school children" />
+            android:hint="Enter no. of primary school children" />
     </LinearLayout>
 
     <LinearLayout
@@ -211,7 +212,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Enter no. of secondary school children" />
+            android:hint="Enter no. of secondary school children" />
     </LinearLayout>
 
     <LinearLayout
@@ -227,44 +228,13 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-        <RadioGroup
-            android:id="@+id/radio2"
-            android:layout_width="0dp"
+        <EditText
+            android:id="@+id/medist"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            android:ems="10"
+            android:inputType="textMultiLine" />
 
-            <RadioButton
-                android:id="@+id/Kannada"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Kannada" />
-            <RadioButton
-                android:id="@+id/English"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="English" />
-            <RadioButton
-                android:id="@+id/Tamil"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Tamil" />
-            <RadioButton
-                android:id="@+id/Urdu"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Urdu" />
-            <RadioButton
-                android:id="@+id/Telugu"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Telugu" />
-            <RadioButton
-                android:id="@+id/Others"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Others" />
-        </RadioGroup>
     </LinearLayout>
         <TextView
             android:id="@+id/textView2"

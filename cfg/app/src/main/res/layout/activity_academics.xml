@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:layout_margin="10dp"
     tools:context=".Academics">
     <TextView
         android:id="@+id/textView"
@@ -34,7 +35,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Enter no. of Academic programs" />
+            android:hint="Enter no. of Academic programs" />
     </LinearLayout>
 
     <LinearLayout
@@ -57,7 +58,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Enter pass percentage" />
+            android:hint="Enter pass percentage" />
     </LinearLayout>
     <TextView
         android:id="@+id/textView2"

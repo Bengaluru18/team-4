@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HealthActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:layout_margin="10dp">
 
     <TextView
         android:id="@+id/textView"
@@ -35,7 +36,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Enter no. of programs" />
+            android:hint="Enter no. of programs" />
     </LinearLayout>
 
 
@@ -60,7 +61,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Enter no. of first aid kits" />
+            android:hint="Enter no. of first aid kits" />
     </LinearLayout>
 
     <LinearLayout

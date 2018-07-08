@@ -52,23 +52,21 @@ public class MainActivity extends AppCompatActivity {
     public void json(){
         final Map<String,String> obj = new HashMap();
 
-            obj.put("Username","anand");
-            obj.put("password","anand123!@");
-            /*
+
             obj.put("comment",((EditText)findViewById(R.id.editText)).getText().toString());
-            obj.put("locality",((EditText)findViewById(R.id.localityEditText)).getText().toString());
-            obj.put("ID",((EditText)findViewById(R.id.idEditText)).getText().toString());
-            obj.put("NAME",((EditText)findViewById(R.id.nameEditText)).getText().toString());
-            obj.put("EXISTINGPROG",Integer.parseInt(((EditText)findViewById(R.id.noOfNgoEditText)).getText().toString()));
-            obj.put("Strength",Integer.parseInt(((EditText)findViewById(R.id.schoolStrengthEditText)).getText().toString()));
-            obj.put("NO_OF_GIRLS",Integer.parseInt(((EditText)findViewById(R.id.girlsEditText)).getText().toString()));
-            obj.put("NO_OF_BOYS",Integer.parseInt(((EditText)findViewById(R.id.boysEditText)).getText().toString()));
-            obj.put("FUNDS",Integer.parseInt(((EditText)findViewById(R.id.amountEditText)).getText().toString()));
-            obj.put("CLUSTER",((EditText)findViewById(R.id.clusterEditText)).getText().toString());
-            obj.put("BLOCK",((EditText)findViewById(R.id.blockEditText)).getText().toString());
-            obj.put("REGION",((EditText)findViewById(R.id.regionEditText)).getText().toString());
-            obj.put("STATE",((EditText)findViewById(R.id.stateEditText)).getText().toString());
-            */
+            obj.put("Locality",((EditText)findViewById(R.id.localityEditText)).getText().toString());
+            obj.put("SchoolID",((EditText)findViewById(R.id.idEditText)).getText().toString());
+            obj.put("S_name",((EditText)findViewById(R.id.nameEditText)).getText().toString());
+            obj.put("NGO_No",((EditText)findViewById(R.id.noOfNgoEditText)).getText().toString());
+            obj.put("S_No",((EditText)findViewById(R.id.schoolStrengthEditText)).getText().toString());
+            obj.put("G_No",((EditText)findViewById(R.id.girlsEditText)).getText().toString());
+            obj.put("B_No",((EditText)findViewById(R.id.boysEditText)).getText().toString());
+            obj.put("Amount",((EditText)findViewById(R.id.amountEditText)).getText().toString());
+            obj.put("District",((EditText)findViewById(R.id.clusterEditText)).getText().toString());
+            obj.put("block",((EditText)findViewById(R.id.blockEditText)).getText().toString());
+            obj.put("region",((EditText)findViewById(R.id.regionEditText)).getText().toString());
+            obj.put("State",((EditText)findViewById(R.id.stateEditText)).getText().toString());
+
 
 
         Toast.makeText(this,String.valueOf(obj),Toast.LENGTH_LONG).show();
@@ -78,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
 
 
             RequestQueue requestQueue = Volley.newRequestQueue(this);
-            String URL = "http://13.229.96.198:5000/loginretrieve";
+            String URL = "http://13.229.96.198:5000/insertworker";
 //        String URL = "https://reqres.in/api/users";
 
 //            final String requestBody = obj.toString();
