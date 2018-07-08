@@ -37,7 +37,7 @@ def retrieve_education(con,SchoolID) :
 def insert_infrastructure(con,x) :
     with con :
         cur=con.cursor()
-        cur.execute("INSERT INTO INFRASTRUCTURE({0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},'{12}')".format(*x))
+        cur.execute("INSERT INTO INFRASTRUCTURE VALUES({0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},'{12}')".format(*x))
         return dict1
 def retrieve_infrastructure(con,SchoolID) :
     if not SchoolID:
@@ -49,6 +49,24 @@ def retrieve_infrastructure(con,SchoolID) :
             rows = cur.fetchall()
             dict1['results']=rows
             return dict1
+
+def insert_health(con,x) :
+    with con :
+        cur=con.cursor()
+        cur.execute("INSERT INTO HEALTH VALUES({0},{1},{2},{3},{4},{5},'{6}')".format(*x))
+        return dict1
+
+def retrieve_health(con,SchoolID) :
+    if not SchoolID:
+        dict1 = {'result':'Fail','error':'No valid SchoolID entered'}
+	return dict1
+        with con:
+            cur = con.cursor(mdb.cursors.DictCursor)
+            cur.execute("SELECT * FROM HEALTH  WHERE SchoolID={}".format(SchoolID))
+            rows = cur.fetchall()
+            dict1['results']=rows
+            return dict1
+
 def createLoginTable(con):
 	with con:
 		cur = con.cursor()
@@ -58,7 +76,7 @@ def createLoginTable(con):
 def insert_stakeholder(con,x) :
     with con :
         cur=con.cursor()
-        cur.execute("INSERT INTO STAKEHOLDER({0},{1},{2},{3},{4},'{5}')".format(*x))
+        cur.execute("INSERT INTO STAKEHOLDER VALUES({0},{1},{2},{3},{4},'{5}')".format(*x))
 	return dict1
 
 def retrieve_stakeholder(con,SchoolID) :

@@ -37,6 +37,9 @@ def insertworker():
 		x.append(request.form["region"])
 		x.append(request.form["block"])
 		print x
+		for i in x:
+			if i == '':
+				raise Exception("error_empty")
 		dict2 = cf.insertworkerTable(con,x)
 		return jsonify(dict2)
 	except mdb.Error, e:
@@ -180,6 +183,38 @@ def infrain():
                 return jsonify(dict2)
         except mdb.Error,e:
                 dict2 = {'error':e,'error_no':'70'}
+                return jsonify(dict2)
+
+@app.route('/inserthealth',methods=['POST'])
+def health():
+	dict={}
+	try:
+		
+		con = mdb.connect('localhost','dbuser','Dbuser123!@','dbase_cwf');
+		x = []
+		x.append(request.form['ID'])
+		x.append(request.form['NOP'])
+		x.append(request.form['FAI'])
+		x.append(request.form['MEO'])
+		x.append(request.form['TRAIN'])
+		x.append(request.form['COUNS'])
+		x.append(request.form['Comment'])
+		print x
+		dict2=cf.insert_health(con,x)
+		return jsonify(dict2)
+	except mdb.Error, e:
+		dict2 = {'error':e,'error_no':'89'}
+		return jsonify(dict2)
+
+@app.route('/retrievehealth',methods=['GET'])
+def healthret():
+        dict2={}
+        try:
+                con= mdb.connect('localhost','dbuser','Dbuser123!@','dbase_cwf');
+                dict2=cf.retriveFacilitiesTable(con,request.args['SchoolID'])
+                return jsonify(dict2)
+        except mdb.Error,e:
+                dict2 = {'error':e, 'error_no':'90'}
                 return jsonify(dict2)
 
 
