@@ -41,7 +41,7 @@ public class Academics extends AppCompatActivity {
 
     public void json(){
         final Map<String,String> obj = new HashMap();
-        int id=11;
+        int id=22;
         obj.put("S_ID",String.valueOf(id++));
         obj.put("No_Aprogs",((EditText)findViewById(R.id.AcademicsEditText)).getText().toString());
         obj.put("Passper",((EditText)findViewById(R.id.passPercentageEditText)).getText().toString());
